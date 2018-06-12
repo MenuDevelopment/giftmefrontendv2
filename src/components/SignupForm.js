@@ -31,17 +31,11 @@ class SignupForm extends React.Component {
     return(
       <Form>
         <h2>Sign up Form Yall</h2>
-        <div>
-          <input type="text" onChange={this.handleChange} value = {this.state.firstName } name = "firstName"  placeholder="First Name"/>
-          <input type="text" onChange={this.handleChange} value = {this.state.lastName } name = "lastName" placeholder="Last Name"/>
-          <br />
-        </div>
-        <div>
-          <input type="text" onChange={this.handleChange} value = {this.state.email } name = "email" placeholder="Email"/>
-          <input type="password" onChange={this.handleChange} value = {this.state.password } name = "password"  placeholder="Password"/>
-          <input type="text" onChange={this.handleChange} value = {this.state.paymentInfo } name = "paymentInfo" placeholder="Payment Info"/>
-          <br />
-        </div>
+        <input type="text" onChange={this.handleChange} value = {this.state.firstName } name = "firstName"  placeholder="First Name"/>
+        <input type="text" onChange={this.handleChange} value = {this.state.lastName } name = "lastName" placeholder="Last Name"/>
+        <input type="text" onChange={this.handleChange} value = {this.state.email } name = "email" placeholder="Email"/>
+        <input type="password" onChange={this.handleChange} value = {this.state.password } name = "password"  placeholder="Password"/>
+        <input type="text" onChange={this.handleChange} value = {this.state.paymentInfo } name = "paymentInfo" placeholder="Payment Info"/>
         <input type="submit"/>
       </Form>
     )
