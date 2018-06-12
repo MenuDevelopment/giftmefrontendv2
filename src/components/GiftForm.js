@@ -17,3 +17,5 @@ class GiftForm extends React.Component{
     )
   }
 }
+
+export default GiftForm
