@@ -7,6 +7,7 @@
 // ) }).then(res => res.json()).then(console.log)
 
 import React from 'react'
+import {Form} from 'semantic-ui-react'
 
 class LoginForm extends React.Component {
 
@@ -23,12 +24,12 @@ class LoginForm extends React.Component {
 
   render(){
     return(
-      <form>
+      <Form>
         <h2> Log In Yall</h2>
         <input type="text" onChange={this.handleChange} value = {this.state.email } name = "email" placeholder="Email"/>
         <input type="password" onChange={this.handleChange} value = {this.state.password } name = "password"  placeholder="Password"/>
         <input type="submit"/>
-      </form>
+      </Form>
     )
   }
 }

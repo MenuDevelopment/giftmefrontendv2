@@ -9,6 +9,7 @@
 // }) }).then(res => res.json()).then(console.log)
 
 import React from 'react'
+import {Form} from 'semantic-ui-react'
 
 class SignupForm extends React.Component {
 
@@ -28,7 +29,7 @@ class SignupForm extends React.Component {
 
   render(){
     return(
-      <form>
+      <Form>
         <h2>Sign up Form Yall</h2>
         <div>
           <input type="text" onChange={this.handleChange} value = {this.state.firstName } name = "firstName"  placeholder="First Name"/>
@@ -42,7 +43,7 @@ class SignupForm extends React.Component {
           <br />
         </div>
         <input type="submit"/>
-      </form>
+      </Form>
     )
   }
 }
