@@ -1,9 +1,11 @@
 import {combineReducers} from 'redux'
 import giftReducer from './giftReducer'
-import 'semantic-ui-css/semantic.min.css'
+import sessionReducer from './sessionReducer'
+
 
 
 
 export default combineReducers({
-  gifts: giftReducer
+  gifts: giftReducer,
+  session: sessionReducer
 })
