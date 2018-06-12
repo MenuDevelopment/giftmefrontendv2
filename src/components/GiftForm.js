@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Form} from 'semantic-ui-react'
+import {Form} from 'semantic-ui-react'
 
 class GiftForm extends React.Component{
   state = {
