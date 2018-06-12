@@ -3,6 +3,7 @@ import React from 'react'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import GiftList from './GiftList'
+import GiftForm from './GiftForm'
 
 class App extends React.Component {
 
@@ -12,6 +13,7 @@ class App extends React.Component {
         <h1>Sup Yall</h1>
         <LoginForm/>
         <SignupForm/>
+        <GiftForm/>
         <GiftList/>
       </div>
     )
