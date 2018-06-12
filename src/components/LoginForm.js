@@ -16,7 +16,6 @@ class LoginForm extends React.Component {
   }
 
   handleChange = (event) => {
-    event.preventDefault()
     this.setState({
       [event.target.name]: event.target.value
     })
