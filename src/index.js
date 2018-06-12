@@ -2,8 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
-import { createSTore, applyMiddlware } from 'redux'
+
 import { Provider } from 'react-redux'
+import store from './store'
 
 
-ReactDOM.render(<Provider ><App /></Provider>, document.getElementById('root'));
+
+ReactDOM.render(
+  <Provider store = {store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'));
