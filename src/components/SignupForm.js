@@ -12,11 +12,31 @@ import React from 'react'
 
 class SignupForm extends React.Component {
 
+  state = {
+    firstName : "",
+    lastName : "",
+    email : "",
+    password : "",
+    paymentInfo : ""
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render(){
     return(
-      <div>
-        <h2> Sign Up Yall </h2>
-      </div>
+      <form>
+        <h2>Sign up Form Yall</h2>
+        <input type="text" onChange={this.handleChange} value = {this.state.firstName } name = "firstName"  placeholder="First Name"/>
+        <input type="text" onChange={this.handleChange} value = {this.state.lastName } name = "lastName" placeholder="Last Name"/>
+        <input type="text" onChange={this.handleChange} value = {this.state.email } name = "email" placeholder="Email"/>
+        <input type="password" onChange={this.handleChange} value = {this.state.password } name = "password"  placeholder="Password"/>
+        <input type="text" onChange={this.handleChange} value = {this.state.paymentInfo } name = "paymentInfo" placeholder="Payment Info"/>
+        <input type="submit"/>
+      </form>
     )
   }
 }

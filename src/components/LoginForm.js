@@ -9,11 +9,26 @@
 import React from 'react'
 
 class LoginForm extends React.Component {
+
+  state = {
+    email : "",
+    password : ""
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   render(){
     return(
-      <div>
-        <h2>Login Yall</h2>
-      </div>
+      <form>
+        <h2> Log In Yall</h2>
+        <input type="text" onChange={this.handleChange} value = {this.state.email } name = "email" placeholder="Email"/>
+        <input type="password" onChange={this.handleChange} value = {this.state.password } name = "password"  placeholder="Password"/>
+        <input type="submit"/>
+      </form>
     )
   }
 }
