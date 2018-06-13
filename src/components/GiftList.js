@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchGifts} from '../actions/giftActions'
+import GiftFullView from './GiftFullView'
 
 class GiftList extends React.Component {
   componentWillMount(){
@@ -13,6 +14,7 @@ class GiftList extends React.Component {
     })
     return(
       <div>
+        {this.props.selectedGift ? <GiftFullView gift={this.props.selectedGift}/> : null}
         <h1>List of gifts</h1>
         <ul>
           {gifts}
@@ -23,6 +25,7 @@ class GiftList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  gifts: state.gifts.gifts
+  gifts: state.gifts.gifts,
+  selectedGift: state.gifts.selectedGift
 })
 export default connect(mapStateToProps, {fetchGifts})(GiftList)

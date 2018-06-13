@@ -1,4 +1,6 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import {newGift} from '../actions/giftActions'
 import {Form} from 'semantic-ui-react'
 
 class GiftForm extends React.Component{
@@ -11,15 +13,21 @@ class GiftForm extends React.Component{
   }
 
   handleChange = (event) => {
-    event.preventDefault()
+
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const giftData = this.state
+    this.props.newGift(giftData)
+  }
+
   render(){
     return(
-      <Form>
+      <Form onSubmit = {this.handleSubmit}>
         <h2>Plan a new gift!</h2>
         <input type="text" placeholder = "Name of the Gift" value={this.state.item_name} name="item_name" onChange = {this.handleChange} />
         <input type="text" placeholder = "Link to the thing" value={this.state.item_link} name="item_link" onChange = {this.handleChange} />
@@ -32,4 +40,4 @@ class GiftForm extends React.Component{
   }
 }
 
-export default GiftForm
+export default connect (null, {newGift})(GiftForm)

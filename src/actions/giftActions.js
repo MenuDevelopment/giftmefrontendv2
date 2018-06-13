@@ -9,11 +9,11 @@ export const fetchGifts = () => dispatch => {
   }))
 }
 
-export const newGift = (gift) => dispatch => {
+export const newGift = (giftData) => dispatch => {
   fetch("http://localhost:3000/api/v2/gifts", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
-    body: JSON.stringify(gift)
+    body: JSON.stringify({gift: giftData})
   })
   .then(res => res.json())
   .then(gift => console.log)

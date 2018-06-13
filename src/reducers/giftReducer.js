@@ -11,7 +11,8 @@ export default function(state=initialState, action){
     case FETCH_GIFTS:
       return {
         ...state,
-        gifts: action.payload
+        gifts: action.payload,
+        selectedGift: action.payload[0]
       }
     default:
       return state
