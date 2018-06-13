@@ -11,6 +11,11 @@ export default function(state=initialState, action){
         ...state,
         logged_in: false
       }
+    case LOG_IN:
+      return{
+        ...state,
+        logged_in: true
+      }
     default:
       return state
   }

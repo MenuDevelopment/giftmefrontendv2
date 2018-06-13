@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {connect} from 'react-redux'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import GiftList from './GiftList'
@@ -10,9 +10,13 @@ class App extends React.Component {
   render(){
     return(
       <div>
-        <h1>Sup Yall</h1>
-        <LoginForm/>
-        <SignupForm/>
+        {this.props.logged_in ?
+          <h1>you logged in</h1> :
+          <div>
+            <LoginForm/>
+            <SignupForm/>
+          </div>
+        }
         <GiftForm/>
         <GiftList/>
       </div>
@@ -21,5 +25,7 @@ class App extends React.Component {
 
 }
 
-
-export default App
+const mapStateToProps = state => ({
+  logged_in: state.session.logged_in
+})
+export default connect(mapStateToProps)(App)
