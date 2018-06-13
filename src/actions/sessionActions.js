@@ -1,13 +1,13 @@
 import {LOG_IN, LOG_OUT} from '../actions/types'
 
-export const LOG_OUT = () => dispatch => {
+export const logOut = () => dispatch => {
   localStorage.clear()
   dispatch({
     type: LOG_OUT
   })
 }
 
-export const LOG_IN = (login_data) => dispatch => {
+export const logIn = (login_data) => dispatch => {
   fetch('http://localhost:3000/api/v2/gifts', {
     method: "POST",
     headers: "Content-Type": "application/json"
