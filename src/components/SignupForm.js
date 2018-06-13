@@ -9,6 +9,8 @@
 // }) }).then(res => res.json()).then(console.log)
 
 import React from 'react'
+import {connect} from 'react-redux'
+import {signup} from '../actions/sessionActions'
 import {Form} from 'semantic-ui-react'
 
 class SignupForm extends React.Component {
@@ -27,9 +29,15 @@ class SignupForm extends React.Component {
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const signupData = this.state
+    this.props.signup(signupData)
+  }
+
   render(){
     return(
-      <Form>
+      <Form onSubmit = {this.handleSubmit}>
         <h2>Sign up Form Yall</h2>
         <input type="text" onChange={this.handleChange} value = {this.state.firstName } name = "firstName"  placeholder="First Name"/>
         <input type="text" onChange={this.handleChange} value = {this.state.lastName } name = "lastName" placeholder="Last Name"/>
@@ -42,4 +50,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SignupForm
+export default connect (null, {signup})(SignupForm)

@@ -5,3 +5,5 @@ export const NEW_GIFT = "NEW_GIFT"
 export const LOG_IN = "LOG_IN"
 
 export const LOG_OUT = "LOG_OUT"
+
+export const SIGN_UP = "SIGN_UP"
