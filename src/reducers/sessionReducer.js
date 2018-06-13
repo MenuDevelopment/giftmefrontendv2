@@ -2,6 +2,7 @@ import {LOG_IN, LOG_OUT} from '../actions/types'
 
 const initialState = {
   logged_in: !!localStorage.token,
+  current_email: localStorage.email
 }
 
 export default function(state=initialState, action){
@@ -14,7 +15,8 @@ export default function(state=initialState, action){
     case LOG_IN:
       return{
         ...state,
-        logged_in: true
+        logged_in: true,
+        current_email: action.payload
       }
     default:
       return state

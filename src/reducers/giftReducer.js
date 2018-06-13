@@ -3,7 +3,7 @@ import {FETCH_GIFTS, NEW_GIFT} from '../actions/types'
 const initialState = {
   gifts: [],
   newGift: {},
-  selectedGift: {}
+  selectedGift: {},
 }
 
 export default function(state=initialState, action){

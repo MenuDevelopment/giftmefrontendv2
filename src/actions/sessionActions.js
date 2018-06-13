@@ -17,8 +17,12 @@ export const logIn = (loginData) => dispatch => {
   .then(token => {
     console.log(token)
     if (token.token){
+      localStorage.setItem("email", token.email)
+      localStorage.setItem("token", token.token)
+      localStorage.setItem("user_id", token.user_id)
       dispatch({
-        type: LOG_IN
+        type: LOG_IN,
+        payload: token.email
       })
     } else{
       console.log("failed to log in")
