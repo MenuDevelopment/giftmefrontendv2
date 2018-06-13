@@ -20,7 +20,8 @@ class SignupForm extends React.Component {
     lastName : "",
     email : "",
     password : "",
-    paymentInfo : ""
+    paymentInfo : "",
+    user_id: localStorage.user_id
   }
 
   handleChange = (event) => {
@@ -38,7 +39,7 @@ class SignupForm extends React.Component {
   render(){
     return(
       <Form onSubmit = {this.handleSubmit}>
-        <h2>Sign up Form Yall</h2>
+        <h2>Sign up Form</h2>
         <input type="text" onChange={this.handleChange} value = {this.state.firstName } name = "firstName"  placeholder="First Name"/>
         <input type="text" onChange={this.handleChange} value = {this.state.lastName } name = "lastName" placeholder="Last Name"/>
         <input type="text" onChange={this.handleChange} value = {this.state.email } name = "email" placeholder="Email"/>
