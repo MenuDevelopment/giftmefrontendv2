@@ -9,7 +9,7 @@ class GiftList extends React.Component {
 
   render(){
     const gifts = this.props.gifts.map((gift) => {
-      return <li>{gift.item_name}</li>
+      return <li key={gift.id}>{gift.item_name}</li>
     })
     return(
       <div>

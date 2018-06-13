@@ -5,17 +5,27 @@ import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import GiftList from './GiftList'
 import GiftForm from './GiftForm'
+import {Button} from 'semantic-ui-react'
 
 class App extends React.Component {
 
+  state = {
+    showGiftForm: false
+  }
 
+  newGiftClicked = (event) => {
+    this.setState({
+      showGiftForm: !this.state.showGiftForm
+    })
+  }
 
   render(){
     const loggedInStuff =
       [<div>
         <h1>Currently logged in: {this.props.current_email}</h1>
-        <button onClick={this.props.logOut}>Log Out</button>
-        <GiftForm/>
+        <Button onClick={this.props.logOut}>Log Out</Button>
+        <Button onClick={this.newGiftClicked}>Create a new Gift!</Button>
+        {this.state.showGiftForm ? <GiftForm/> : null}
         <GiftList/>
       </div>]
     const loggedOutStuff = [
