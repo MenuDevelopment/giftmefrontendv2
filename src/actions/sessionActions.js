@@ -7,17 +7,22 @@ export const logOut = () => dispatch => {
   })
 }
 
-export const logIn = (login_data) => dispatch => {
-  fetch('http://localhost:3000/api/v2/gifts', {
+export const logIn = (loginData) => dispatch => {
+  fetch('http://localhost:3000/api/v2/sessions', {
     method: "POST",
-    headers: "Content-Type": "application/json"
-    body: JSON.stringify(login_data)
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(loginData)
   })
   .then(res => res.json())
   .then(token => {
     console.log(token)
-    dispatch({
-      type: LOG_IN
-    })
+    if (token.token){
+      dispatch({
+        type: LOG_IN
+      })
+    } else{
+      console.log("failed to log in")
+    }
+
   })
 }

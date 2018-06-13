@@ -8,6 +8,8 @@
 
 import React from 'react'
 import {Form} from 'semantic-ui-react'
+import {connect} from 'react-redux'
+import {logIn} from '../actions/sessionActions'
 
 class LoginForm extends React.Component {
 
@@ -24,6 +26,12 @@ class LoginForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    const loginData = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    this.props.logIn(loginData)
+
   }
 
   render(){
@@ -38,4 +46,4 @@ class LoginForm extends React.Component {
   }
 }
 
-export default LoginForm
+export default connect(null, {logIn})(LoginForm)
