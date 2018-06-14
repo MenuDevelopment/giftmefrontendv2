@@ -8,6 +8,8 @@ const GiftFullView = (props) => {
       <Card.Content header={props.gift.item_name}/>
       <Card.Content extra>
         <Header as="h3">Goal: {props.gift.item_price}</Header>
+        <p>Description: {props.gift.item_description}</p>
+        <Header as="h3">End Date: {props.gift.end_date}</Header>
         <Progress percent={goalPercent} indicating progress />
 
       </Card.Content>
