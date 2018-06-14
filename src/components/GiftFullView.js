@@ -2,9 +2,14 @@ import React from "react"
 import {Button, Card, Header, Progress} from 'semantic-ui-react'
 
 const GiftFullView = (props) => {
-  const goalPercent = props.gift.pledge_amount/props.gift.item_price * 100
+
+
+
+  let goalPercent = props.gift.pledge_amount/props.gift.item_price * 100
+  goalPercent = goalPercent.toFixed(2)
+
   return (
-    <Card>
+    <Card >
       <Card.Content header={props.gift.item_name}/>
       <Card.Content extra>
         <Header as="h3">Goal: {props.gift.item_price}</Header>
