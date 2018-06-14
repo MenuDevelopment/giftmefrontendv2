@@ -1,15 +1,19 @@
 import React from "react"
+import {connect} from 'react-redux'
+import {setGift} from '../actions/giftActions'
 import {Button, Card, Header, Progress} from 'semantic-ui-react'
 
 const GiftFullView = (props) => {
 
-
+  const handleClick = (event) => {
+    props.setGift(props.gift)
+  }
 
   let goalPercent = props.gift.pledge_amount/props.gift.item_price * 100
   goalPercent = goalPercent.toFixed(2)
 
   return (
-    <Card >
+    <Card onClick = {handleClick}>
       <Card.Content header={props.gift.item_name}/>
       <Card.Content extra>
         <Header as="h3">Goal: {props.gift.item_price}</Header>
@@ -22,4 +26,4 @@ const GiftFullView = (props) => {
   )
 }
 
-export default GiftFullView
+export default connect(null,{setGift})(GiftFullView)

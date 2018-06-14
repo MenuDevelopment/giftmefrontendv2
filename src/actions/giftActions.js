@@ -1,4 +1,4 @@
-import {FETCH_GIFTS, NEW_GIFT} from './types'
+import {FETCH_GIFTS, NEW_GIFT, SET_GIFT} from './types'
 
 export const fetchGifts = () => dispatch => {
   fetch("http://localhost:3000/api/v2/gifts")
@@ -17,4 +17,11 @@ export const newGift = (giftData) => dispatch => {
   })
   .then(res => res.json())
   .then(gift => console.log)
+}
+
+export const setGift = (gift) => dispatch => {
+  dispatch({
+    type: SET_GIFT,
+    payload: gift
+  })
 }
