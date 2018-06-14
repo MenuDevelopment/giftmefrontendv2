@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {setGift} from '../actions/giftActions'
 import {Button, Card, Header, Progress} from 'semantic-ui-react'
 
-const GiftFullView = (props) => {
+const GiftCardView = (props) => {
 
   const handleClick = (event) => {
     props.setGift(props.gift)
@@ -26,4 +26,4 @@ const GiftFullView = (props) => {
   )
 }
 
-export default connect(null,{setGift})(GiftFullView)
+export default connect(null,{setGift})(GiftCardView)

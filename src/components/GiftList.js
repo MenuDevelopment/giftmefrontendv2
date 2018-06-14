@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchGifts} from '../actions/giftActions'
 import {Card} from 'semantic-ui-react'
-import GiftFullView from './GiftFullView'
+import GiftCardView from './GiftCardView'
 
 class GiftList extends React.Component {
 
@@ -12,11 +12,11 @@ class GiftList extends React.Component {
 
   render(){
     const gifts = this.props.gifts.map((gift) => {
-      return  <GiftFullView key={gift.id} gift={gift}/>
+      return  <GiftCardView key={gift.id} gift={gift}/>
     })
     return(
       <div>
-        {this.props.selectedGift ? <GiftFullView gift={this.props.selectedGift}/> : null}
+        {this.props.selectedGift ? <GiftCardView gift={this.props.selectedGift}/> : null}
         <h1>List of gifts</h1>
         <Card.Group centered>
           {gifts}
