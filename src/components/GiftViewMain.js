@@ -15,7 +15,8 @@ class GiftViewMain extends React.Component {
         <p>Description: {this.props.gift.item_description}</p>
         <Header as="h3">End Date: {this.props.gift.end_date}</Header>
         <Progress percent={goalPercent} indicating progress />
-        <Button secondary>BITCONNECT</Button>
+        {localStorage.getItem("user_id") == this.props.gift.user_id ?
+          <Button secondary>Edit your Gift</Button> : <p>This gift was not created by you</p>}
       </Container>
     )
   }

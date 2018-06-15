@@ -5,6 +5,7 @@ import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import GiftList from './GiftList'
 import GiftForm from './GiftForm'
+import NavBar from './NavBar'
 import {Button, Divider} from 'semantic-ui-react'
 
 class App extends React.Component {
@@ -38,6 +39,7 @@ class App extends React.Component {
 
     return(
       <div>
+        <NavBar/>
         {this.props.logged_in ? loggedInStuff : loggedOutStuff}
       </div>
     )
