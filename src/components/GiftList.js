@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchGifts} from '../actions/giftActions'
 import {Card} from 'semantic-ui-react'
 import GiftCardView from './GiftCardView'
+import GiftViewMain from './GiftViewMain'
 
 class GiftList extends React.Component {
 
@@ -16,7 +17,7 @@ class GiftList extends React.Component {
     })
     return(
       <div>
-        {this.props.selectedGift ? <GiftCardView gift={this.props.selectedGift}/> : null}
+        {this.props.selectedGift ? <GiftViewMain gift={this.props.selectedGift}/> : null}
         <h1>List of gifts</h1>
         <Card.Group centered>
           {gifts}

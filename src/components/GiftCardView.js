@@ -9,8 +9,7 @@ const GiftCardView = (props) => {
     props.setGift(props.gift)
   }
 
-  let goalPercent = props.gift.pledge_amount/props.gift.item_price * 100
-  goalPercent = goalPercent.toFixed(2)
+  let goalPercent = (props.gift.pledge_amount/props.gift.item_price * 100).toFixed(2)
 
   return (
     <Card onClick = {handleClick}>

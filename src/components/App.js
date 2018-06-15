@@ -5,7 +5,7 @@ import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import GiftList from './GiftList'
 import GiftForm from './GiftForm'
-import {Button} from 'semantic-ui-react'
+import {Button, Divider} from 'semantic-ui-react'
 
 class App extends React.Component {
 
@@ -26,6 +26,7 @@ class App extends React.Component {
         <Button onClick={this.props.logOut}>Log Out</Button>
         <Button onClick={this.newGiftClicked}>Create a new Gift!</Button>
         {this.state.showGiftForm ? <GiftForm/> : null}
+        <Divider />
         <GiftList/>
       </div>]
     const loggedOutStuff = [
