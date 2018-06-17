@@ -17,6 +17,7 @@ class GiftViewMain extends React.Component {
         <Progress percent={goalPercent} indicating progress />
         {localStorage.getItem("user_id") == this.props.gift.user_id ?
           <Button secondary>Edit your Gift</Button> : <p>This gift was not created by you</p>}
+        <Button secondary>Add a pledge</Button>
       </Container>
     )
   }
