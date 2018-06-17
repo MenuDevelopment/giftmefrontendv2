@@ -9,3 +9,7 @@ export const LOG_IN = "LOG_IN"
 export const LOG_OUT = "LOG_OUT"
 
 export const SIGN_UP = "SIGN_UP"
+
+export const NEW_PLEDGE = "NEW_PLEDGE"
+
+export const EDIT_PLEDGE = "EDIT_PLEDGE"

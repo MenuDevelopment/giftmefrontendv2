@@ -1,4 +1,4 @@
-import {FETCH_GIFTS, NEW_GIFT, SET_GIFT} from './types'
+import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE} from './types'
 
 export const fetchGifts = () => dispatch => {
   fetch("http://localhost:3000/api/v2/gifts")
@@ -25,3 +25,22 @@ export const setGift = (gift) => dispatch => {
     payload: gift
   })
 }
+
+export const newPledge = (pledgeData) => dispatch => {
+  fetch("http://localhost:3000/api/v2/pledges", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({pledge: pledgeData})
+  })
+  .then(res => res.json())
+  .then(pledgeData => console.log)
+}
+
+export const editPledge = (pledgeData) => dispatch =>{
+  fetch(`http://localhost:3000/api/v2/pledges/${pledgeData.id}`,
+  method: "POST",
+  headers: {"Content-Type": "application/json"},
+  body: JSON.stringify({pledge: pledgeData})
+  )}
+  .then(res => res.json())
+  .then(pledgeData => console.log)

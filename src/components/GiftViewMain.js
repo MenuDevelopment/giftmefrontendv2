@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Container, Button, Header, Progress, Sticky} from 'semantic-ui-react'
+import PledgeForm from './PledgeForm'
 
 class GiftViewMain extends React.Component {
 
@@ -18,6 +19,7 @@ class GiftViewMain extends React.Component {
         {localStorage.getItem("user_id") == this.props.gift.user_id ?
           <Button secondary>Edit your Gift</Button> : <p>This gift was not created by you</p>}
         <Button secondary>Add a pledge</Button>
+        <PledgeForm/>
       </Container>
     )
   }
