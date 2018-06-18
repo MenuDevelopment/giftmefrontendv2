@@ -5,6 +5,18 @@ import PledgeForm from './PledgeForm'
 
 class GiftViewMain extends React.Component {
 
+  state = {
+    showPledgeForm: false
+  }
+
+  handleClick = (event) => {
+    console.log("The button works");
+    console.log(this.state);
+    this.setState((prevState)=>{
+      return {showPledgeForm: !prevState.showPledgeForm}
+    })
+
+  }
 
   render(){
     const goalPercent = (this.props.gift.pledge_amount/this.props.gift.item_price * 100).toFixed(2)
@@ -18,8 +30,8 @@ class GiftViewMain extends React.Component {
         <Progress percent={goalPercent} indicating progress />
         {localStorage.getItem("user_id") == this.props.gift.user_id ?
           <Button secondary>Edit your Gift</Button> : <p>This gift was not created by you</p>}
-        <Button secondary>Add a pledge</Button>
-        <PledgeForm/>
+        <Button secondary onClick = {this.handleClick}>Add a pledge</Button>
+        {this.state.showPledgeForm ? <PledgeForm giftId = {this.props.gift.id}/> : null}
       </Container>
     )
   }

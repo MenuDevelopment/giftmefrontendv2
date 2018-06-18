@@ -37,10 +37,11 @@ export const newPledge = (pledgeData) => dispatch => {
 }
 
 export const editPledge = (pledgeData) => dispatch =>{
-  fetch(`http://localhost:3000/api/v2/pledges/${pledgeData.id}`,
-  method: "POST",
-  headers: {"Content-Type": "application/json"},
-  body: JSON.stringify({pledge: pledgeData})
-  )}
+  fetch(`http://localhost:3000/api/v2/pledges/${pledgeData.id}`,{
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({pledge: pledgeData})
+  })
   .then(res => res.json())
   .then(pledgeData => console.log)
+}

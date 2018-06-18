@@ -1,11 +1,13 @@
 import React from 'react'
 import connect from 'react-redux'
 import {Form, Button, Container, Divider} from 'semantic-ui-react'
+import {newPledge, editPledge} from '../actions/giftActions'
 
 class PledgeForm extends React.Component{
   state = {
     message: "",
     amount: "",
+    user_id: localStorage.getItem("user_id")
   }
 
   handleChange = (event) => {
@@ -14,12 +16,19 @@ class PledgeForm extends React.Component{
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    newPledge(this.state)
+
+
+  }
+
   render(){
     return(
       <Container>
         <Divider/>
         <Form onSubmit = {this.handleSubmit}>
-          <h1>Hey Kid! Im a computer! Stop all the downloading!</h1>
+          <h2>Contribute to this gift!</h2>
           <input
             type ="text"
             name="message"
