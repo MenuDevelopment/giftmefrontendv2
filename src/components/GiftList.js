@@ -17,7 +17,7 @@ class GiftList extends React.Component {
     })
     return(
       <div>
-        {this.props.selectedGift ? <GiftViewMain gift={this.props.selectedGift}/> : null}
+        {this.props.selectedGift ? <GiftViewMain /> : null}
         <h1>List of gifts</h1>
         <Card.Group centered>
           {gifts}

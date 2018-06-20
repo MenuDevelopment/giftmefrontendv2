@@ -33,7 +33,12 @@ export const newPledge = (pledgeData) => dispatch => {
     body: JSON.stringify({pledge: pledgeData})
   })
   .then(res => res.json())
-  .then(pledgeData => console.log)
+  .then(pledgeData => {
+    dispatch({
+      type: NEW_PLEDGE,
+      payload: pledgeData
+    })
+  })
 }
 
 export const editPledge = (pledgeData) => dispatch =>{

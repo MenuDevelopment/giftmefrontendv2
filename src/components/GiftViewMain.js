@@ -10,8 +10,6 @@ class GiftViewMain extends React.Component {
   }
 
   handleClick = (event) => {
-    console.log("The button works");
-    console.log(this.state);
     this.setState((prevState)=>{
       return {showPledgeForm: !prevState.showPledgeForm}
     })
@@ -19,12 +17,14 @@ class GiftViewMain extends React.Component {
   }
 
   render(){
-    const goalPercent = (this.props.gift.pledge_amount/this.props.gift.item_price * 100).toFixed(2)
+    const goalPercent = (this.props.pledgeAmount/this.props.gift.item_price * 100).toFixed(2)
 
     return(
       <Container >
         <Header as="h1"> {this.props.gift.item_name}</Header>
         <Header as="h3">Goal: {this.props.gift.item_price}</Header>
+        <h2> Bar test</h2>
+        <Progress percent={goalPercent} indicating progress />
         <p>Description: {this.props.gift.item_description}</p>
         <Header as="h3">End Date: {this.props.gift.end_date}</Header>
         <Progress percent={goalPercent} indicating progress />
@@ -37,5 +37,12 @@ class GiftViewMain extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    gift: state.gifts.selectedGift,
+    pledgeAmount: state.gifts.pledgeAmount
+  }
+}
 
-export default GiftViewMain
+
+export default connect(mapStateToProps)(GiftViewMain)

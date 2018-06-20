@@ -18,7 +18,6 @@ class PledgeForm extends React.Component{
   handleSubmit = (event) => {
     event.preventDefault()
     const giftData = {...this.state, gift_id: this.props.giftId, user_id: localStorage.getItem("user_id")}
-    console.log(giftData);
     this.props.newPledge(giftData)
   }
 
@@ -28,17 +27,22 @@ class PledgeForm extends React.Component{
         <Divider/>
         <Form onSubmit = {this.handleSubmit}>
           <h2>Contribute to this gift!</h2>
-          <h3>{this.props.gift.item_name} | {this.props.gift.id}</h3>
+          <label>Message:</label>
           <input
             type ="text"
             name="message"
+            id="messageBox"
+            required
             placeholder="Attach a message along with your pledge!"
             onChange = {this.handleChange}
             value = {this.state.message}
           />
+          <label>Pledge Amount:</label>
           <input
             type ="number"
             name ="amount"
+            min="0"
+            required
             placeholder= "How much are you pledging towards this gift?"
             onChange = {this.handleChange}
             value = {this.state.amount}
