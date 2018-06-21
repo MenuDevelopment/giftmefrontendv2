@@ -22,4 +22,7 @@ const NavBar = (props) => {
   )
 }
 
-export default connect (null, {logOut}) (NavBar)
+const mapStateToProps = state => ({
+  logged_in: state.session.logged_in
+})
+export default connect (mapStateToProps, {logOut}) (NavBar)
