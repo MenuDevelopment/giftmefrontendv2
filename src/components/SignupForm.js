@@ -20,8 +20,7 @@ class SignupForm extends React.Component {
     lastName : "",
     email : "",
     password : "",
-    paymentInfo : "",
-    user_id: localStorage.user_id
+    paymentInfo : ""
   }
 
   handleChange = (event) => {
@@ -32,7 +31,13 @@ class SignupForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const signupData = this.state
+    const signupData = {
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      email: this.state.email,
+      password: this.state.password,
+      payment_info: this.state.paymentInfo,
+    }
     this.props.signup(signupData)
   }
 

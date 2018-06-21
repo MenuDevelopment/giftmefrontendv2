@@ -38,7 +38,6 @@ export default function(state=initialState, action){
         selectedGift: updatedSelectedGift
       }
       case NEW_PLEDGE:
-      console.log("WHY MUST I CRY");
         return{
           ...state,
           selectedGift: {...state.selectedGift,
