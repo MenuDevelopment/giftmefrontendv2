@@ -24,7 +24,7 @@ class App extends React.Component {
     const loggedInStuff =
       [<div>
         <h1>Currently logged in: {this.props.current_email}</h1>
-        <Button onClick={this.props.logOut}>Log Out</Button>
+        
         <Button onClick={this.newGiftClicked}>Create a new Gift!</Button>
         {this.state.showGiftForm ? <GiftForm/> : null}
         <Divider />
@@ -51,4 +51,4 @@ const mapStateToProps = state => ({
   logged_in: state.session.logged_in,
   current_email: state.session.current_email
 })
-export default connect(mapStateToProps, {logOut})(App)
+export default connect(mapStateToProps)(App)

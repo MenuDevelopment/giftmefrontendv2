@@ -1,5 +1,7 @@
 import React from 'react'
-import {Segment, Header} from 'semantic-ui-react'
+import {Button, Segment, Header} from 'semantic-ui-react'
+import {connect} from 'react-redux'
+import {logOut} from '../actions/sessionActions'
 import Headroom from 'react-headroom'
 
 const NavBar = (props) => {
@@ -13,10 +15,11 @@ const NavBar = (props) => {
           inverted color='white'
           textAlign='center'>
           Gift.Me: Sending awesome gifts, together.
+          {localStorage.getItem("user_id") ? <Button floated="right" onClick={props.logOut}>Log Out</Button> : null }
         </Header>
       </Segment>
     </Headroom>
   )
 }
 
-export default NavBar
+export default connect (null, {logOut}) (NavBar)
