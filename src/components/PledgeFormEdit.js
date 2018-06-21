@@ -3,10 +3,10 @@ import {connect} from 'react-redux'
 import {Form, Button, Container, Divider} from 'semantic-ui-react'
 import {newPledge, editPledge} from '../actions/giftActions'
 
-class PledgeForm extends React.Component{
+class PledgeFormEdit extends React.Component{
   state = {
-    message: "",
-    amount: "",
+    message: this.props.yourPledge.message,
+    amount: this.props.yourPledge.amount,
   }
 
   handleChange = (event) => {
@@ -17,8 +17,8 @@ class PledgeForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault()
-    const giftData = {...this.state, gift_id: this.props.giftId, user_id: localStorage.getItem("user_id")}
-    this.props.newPledge(giftData)
+    // const giftData = {...this.state, gift_id: this.props.giftId, user_id: localStorage.getItem("user_id")}
+    // this.props.editPledge(giftData)
   }
 
   render(){
@@ -58,7 +58,10 @@ class PledgeForm extends React.Component{
 const mapStateToProps = (state) => {
   return {
     gift: state.gifts.selectedGift,
+    yourPledge: state.gifts.pledges.find((pledge) => {
+      return pledge.user.id == localStorage.getItem("user_id")
+    })
   }
 }
 
-export default connect (mapStateToProps, {newPledge}) (PledgeForm)
+export default connect (mapStateToProps, {newPledge}) (PledgeFormEdit)

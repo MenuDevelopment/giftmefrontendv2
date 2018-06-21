@@ -15,3 +15,5 @@ export const NEW_PLEDGE = "NEW_PLEDGE"
 export const EDIT_PLEDGE = "EDIT_PLEDGE"
 
 export const SHOW_ADD_PLEDGE = "SHOW_ADD_PLEDGE"
+
+export const SHOW_EDIT_PLEDGE = "SHOW_EDIT_PLEDGE"

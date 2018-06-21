@@ -1,4 +1,4 @@
-import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE, LOG_OUT, SHOW_ADD_PLEDGE} from '../actions/types'
+import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE, LOG_OUT, SHOW_ADD_PLEDGE, SHOW_EDIT_PLEDGE} from '../actions/types'
 
 const initialState = {
   gifts: [],
@@ -6,7 +6,8 @@ const initialState = {
   selectedGift: {},
   pledgeAmount: 0,
   pledges: [],
-  showAddPledge: false
+  showAddPledge: false,
+  showEditPledge: false,
 }
 
 export default function(state=initialState, action){
@@ -25,7 +26,8 @@ export default function(state=initialState, action){
         selectedGift: action.payload,
         pledgeAmount: action.payload.pledge_amount,
         pledges: action.payload.pledges,
-        showAddPledge: false
+        showAddPledge: false,
+        showEditPledge: false,
       }
     case EDIT_PLEDGE:
       console.log(action.payload);
@@ -47,6 +49,7 @@ export default function(state=initialState, action){
         return{
           ...state,
           showAddPledge: false,
+          showEditPledge: false,
           pledges: [...state.selectedGift.pledges, action.payload],
           pledgeAmount: state.pledgeAmount + action.payload.amount
         }
@@ -56,6 +59,11 @@ export default function(state=initialState, action){
         return{
           ...state,
           showAddPledge: true
+        }
+      case SHOW_EDIT_PLEDGE:
+        return{
+          ...state,
+          showEditPledge: true
         }
     default:
       return state
