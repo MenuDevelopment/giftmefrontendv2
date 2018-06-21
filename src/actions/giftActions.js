@@ -1,4 +1,4 @@
-import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE} from './types'
+import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE, SHOW_ADD_PLEDGE} from './types'
 
 export const fetchGifts = () => dispatch => {
   fetch("http://localhost:3000/api/v2/gifts")
@@ -49,4 +49,10 @@ export const editPledge = (pledgeData) => dispatch =>{
   })
   .then(res => res.json())
   .then(pledgeData => console.log)
+}
+
+export const addPledgeClicked = () => dispatch => {
+  dispatch({
+    type: SHOW_ADD_PLEDGE
+  })
 }

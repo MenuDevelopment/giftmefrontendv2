@@ -1,10 +1,12 @@
-import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE, LOG_OUT} from '../actions/types'
+import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE, LOG_OUT, SHOW_ADD_PLEDGE} from '../actions/types'
 
 const initialState = {
   gifts: [],
   newGift: {},
   selectedGift: {},
-  pledgeAmount: 0
+  pledgeAmount: 0,
+  pledges: [],
+  showAddPledge: false
 }
 
 export default function(state=initialState, action){
@@ -14,13 +16,16 @@ export default function(state=initialState, action){
         ...state,
         gifts: action.payload,
         selectedGift: action.payload[0],
-        pledgeAmount: action.payload[0].pledge_amount
+        pledgeAmount: action.payload[0].pledge_amount,
+        pledges: action.payload[0].pledges
       }
     case SET_GIFT:
       return{
         ...state,
         selectedGift: action.payload,
-        pledgeAmount: action.payload.pledge_amount
+        pledgeAmount: action.payload.pledge_amount,
+        pledges: action.payload.pledges,
+        showAddPledge: false
       }
     case EDIT_PLEDGE:
       console.log(action.payload);
@@ -41,12 +46,17 @@ export default function(state=initialState, action){
       case NEW_PLEDGE:
         return{
           ...state,
-          selectedGift: {...state.selectedGift,
-          pledges: [...state.selectedGift.pledges].push(action.payload)},
+          showAddPledge: false,
+          pledges: [...state.selectedGift.pledges, action.payload],
           pledgeAmount: state.pledgeAmount + action.payload.amount
         }
       case LOG_OUT:
-      return initialState
+        return initialState
+      case SHOW_ADD_PLEDGE:
+        return{
+          ...state,
+          showAddPledge: true
+        }
     default:
       return state
   }

@@ -13,3 +13,5 @@ export const SIGN_UP = "SIGN_UP"
 export const NEW_PLEDGE = "NEW_PLEDGE"
 
 export const EDIT_PLEDGE = "EDIT_PLEDGE"
+
+export const SHOW_ADD_PLEDGE = "SHOW_ADD_PLEDGE"
