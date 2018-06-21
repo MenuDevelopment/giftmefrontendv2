@@ -12,7 +12,8 @@ export default function(state=initialState, action){
       return {
         ...state,
         gifts: action.payload,
-        selectedGift: action.payload[0]
+        selectedGift: action.payload[0],
+        pledgeAmount: action.payload[0].pledge_amount
       }
     case SET_GIFT:
       return{
