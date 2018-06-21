@@ -10,7 +10,8 @@ export default function(state=initialState, action){
     case LOG_OUT:
       return {
         ...state,
-        logged_in: false
+        logged_in: false,
+        current_email: false
       }
     case LOG_IN:
       return{

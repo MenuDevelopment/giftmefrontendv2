@@ -1,9 +1,10 @@
-import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE} from '../actions/types'
+import {FETCH_GIFTS, NEW_GIFT, SET_GIFT, NEW_PLEDGE, EDIT_PLEDGE, LOG_OUT} from '../actions/types'
 
 const initialState = {
   gifts: [],
   newGift: {},
   selectedGift: {},
+  pledgeAmount: 0
 }
 
 export default function(state=initialState, action){
@@ -44,8 +45,9 @@ export default function(state=initialState, action){
           pledges: [...state.selectedGift.pledges].push(action.payload)},
           pledgeAmount: state.pledgeAmount + action.payload.amount
         }
+      case LOG_OUT:
+      return initialState
     default:
-      console.log(state);
       return state
   }
 }
