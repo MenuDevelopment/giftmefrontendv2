@@ -2,3 +2,8 @@ body {
   margin: auto;
   font-family: sans-serif;
 }
+
+.cardList {
+  overflow-y: auto;
+  max-height: 500px;
+}

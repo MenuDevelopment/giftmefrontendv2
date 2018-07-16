@@ -16,12 +16,14 @@ class GiftList extends React.Component {
       return  <GiftCardView key={gift.id} gift={gift}/>
     })
     return(
-      <div>
+      <div >
         {this.props.selectedGift ? <GiftViewMain /> : null}
         <h1>List of gifts</h1>
-        <Card.Group centered>
-          {gifts}
-        </Card.Group>
+        <div className = "cardList">
+          <Card.Group centered>
+            {gifts}
+          </Card.Group>
+        </div>
       </div>
     )
   }
